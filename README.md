@@ -12,7 +12,7 @@ patch fixes that… but if you want to _land_ on a frozen enemy, you’d better
 break out of Screw Attack first.  (My favorite way is tapping Up on the
 D-pad.)
 
-Uses a dollop of free space in at `$A0:TBD_`.
+Uses a dollop of free space near the top of bank $A0.
 
 # Applying it
 
