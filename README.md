@@ -2,6 +2,20 @@
 
 Make Screw Attack effective on frozen enemies in Super Metroid.
 
+# Warning
+
+This is an early, buggy version of the patch.
+
+Limitations:
+
+1. Metroids are still platforms when frozen, or else they’d latch onto Samus when she jumps through them.
+2. Kihunters die, but their wings remain until thawing.
+I assume this is a problem due to them being possessors.
+3. Finding a way to clip into a frozen enemy (jump-through-ceiling glitch) probably hurts Samus.
+4. Any enemy with a non-standard hitbox doesn’t die; Samus passes through harmlessly.  E.g. Space Pirates.
+
+# Description
+
 Unlike the original NES Metroid, in Super Metroid, enemies are normally
 invulnerable to Screw Attack while frozen.  It seems kind of ridiculous that
 the most powerful weapon in the game can’t handle some puny ice.
