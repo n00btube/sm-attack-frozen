@@ -3,6 +3,8 @@ What's this file?  It's a script for BizHawk, to dump out observed enemy
 collision routines.  This way, I can play the game and collect a list of all
 the routines that MAY need to be modified for Samus to defeat the enemy.
 
+It's also a red herring.  I came up with a new approach that obsoleted this.
+
 
 BizHawk doesn't pass the bus-address mapping through to Lua, so to read
 values, we get to apply some mapping.  For Super Metroid:
