@@ -4,15 +4,14 @@ Make Screw Attack effective on frozen enemies in Super Metroid.
 
 # Warning
 
-This is an early, buggy version of the patch.
+This is not fully tested yet.  Bugs may lurk.
 
-Limitations:
+Current status:
 
-1. Metroids are still platforms when frozen, or else they’d latch onto Samus when she jumps through them.
-2. Kihunters die, but their wings remain until thawing.
-I assume this is a problem due to them being possessors.
-3. Finding a way to clip into a frozen enemy (jump-through-ceiling glitch) probably hurts Samus.
-4. Any enemy with a non-standard hitbox doesn’t die; Samus passes through harmlessly.  E.g. Space Pirates.
+1. Metroids are still platforms when frozen.  The alternative is untested.
+2. Possessors like Kihunters are untested.
+3. Glitching into frozen enemies *probably* mimics the vanilla game.
+4. Space Pirates (“special gfx/hitbox” enemies) **do** die.
 
 # Description
 
@@ -39,6 +38,9 @@ to always use xkas v06.
 
 This would have been immensely difficult without Kejardon’s notes: not only
 RAMMap as usual, but Enemy\_Mem.
+
+I’ve discovered Scyzer’s enhanced RAM map and pjboy’s ongoing ROM disassembly,
+thanks to a gentle nudge from Grime.
 
 This is yet another idea from [metconst](http://metroidconstruction.com) in
 general and MetroidMst in particular (currently, last post in the ASM Wishlist
