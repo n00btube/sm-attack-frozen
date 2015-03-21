@@ -19,13 +19,16 @@ attack_check:
 	LDX $18A6        ; reload enemy index
 
 	LDA $0F9E,X      ; get freeze timer
-	BEQ platform     ; not frozen: run default code
+	BEQ platform     ; not frozen (platform enemy), normal reaction
 
 	LDA $0A6E        ; Samus/enemy collision damage type
-	CMP #$0003       ; screw attacking?
-	BNE platform     ; nope, run default code
+	BEQ platform     ; zero: nothing special
+	CMP #$0004       ; speedrun/shinespark/screw attack?
+	BCS platform     ; no, some unknown value, do not mess with it
 
-	STZ $0F9E,X      ; unfreeze enemy before processing collision
+	STZ $0F9E,X      ; unfreeze enemy
+	PLX              ; fix the stack
+	JMP $AABF        ; platform miss
 platform:
 	PLX
 landing:

@@ -6,14 +6,21 @@ Make Screw Attack effective on frozen enemies in Super Metroid.
 
 This is not fully tested yet.  Bugs may lurk.
 
-Current status:
+## Known issues
 
-1. Metroids thaw and bounce off Samus when she screw attacks them.
-2. Possessors like Kihunters still leave frozen wings floating in the air.
-3. Glitching into frozen enemies *probably* mimics the vanilla game.
-4. Space Pirates (“special gfx/hitbox” enemies) **do** die.
-5. Samus’ motion is interrupted and her screw attack ends when she collides with an enemy.
-This turns Screw Attack into a high-powered pseudo screw attack vs. frozen enemies.
+1. Possessors like Kihunters still leave frozen bits floating in the air.
+2. Touching, but not colliding with, an enemy will unfreeze it.
+
+## Solved issues and style points
+
+1. Special-tilemap enemies like Space Pirates can be destroyed.
+2. Metroids can be safely attacked.
+They just unfreeze and bounce, at least for screw attack.
+I don’t think I can easily test speedboost+Metroid collisions.
+3. You can land on frozen enemies, if you’re falling down onto them.
+But, you can’t walljump off them.
+What good is only being able to kill them by jumping upward into them?
+4. Speed-running through frozen enemies kills them, too.
 
 # Description
 
