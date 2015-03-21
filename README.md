@@ -24,15 +24,11 @@ What good is only being able to kill them by jumping upward into them?
 
 # Description
 
-Unlike the original NES Metroid, in Super Metroid, enemies are normally
-invulnerable to Screw Attack while frozen.  It seems kind of ridiculous that
-the most powerful weapon in the game can’t handle some puny ice.
+Unlike the original NES Metroid, in Super Metroid, enemies are normally invulnerable to Screw Attack while frozen.
+It seems kind of ridiculous that the most powerful weapon in the game can’t handle some puny ice.
 
-It turns out that this happens because the normal collision-detect code
-doesn’t even bother to check if Samus is trying to attack the enemies.  This
-patch fixes that… but if you want to _land_ on a frozen enemy, you’d better
-break out of Screw Attack first.  (My favorite way is tapping Up on the
-D-pad.)
+It turns out that this happens because the normal collision-detect code doesn’t even bother to check if Samus is trying to attack the enemies.
+This patch fixes that.
 
 Uses a dollop of free space near the top of bank $A0.
 
@@ -40,20 +36,15 @@ Uses a dollop of free space near the top of bank $A0.
 
     xkas patchfile.asm unheadered.sfc
 
-I’ve decided, as long as nobody ever requests patches for any other assembler,
-to always use xkas v06.
+I’ve decided, as long as nobody ever requests patches for any other assembler, to always use xkas v06.
 
 # Credits
 
-This would have been immensely difficult without Kejardon’s notes: not only
-RAMMap as usual, but Enemy\_Mem.
+This would have been immensely difficult without Kejardon’s notes: not only RAMMap as usual, but Enemy\_Mem.
 
-I’ve discovered Scyzer’s enhanced RAM map and pjboy’s ongoing ROM disassembly,
-thanks to a gentle nudge from Grime.
+I’ve discovered Scyzer’s enhanced RAM map and pjboy’s ongoing ROM disassembly, thanks to a gentle nudge from Grime.
 
-This is yet another idea from [metconst](http://metroidconstruction.com) in
-general and MetroidMst in particular (currently, last post in the ASM Wishlist
-thread.)
+This is yet another idea from [metconst](http://metroidconstruction.com) in general and MetroidMst in particular (currently, last post in the ASM Wishlist thread.)
 
 # License
 
