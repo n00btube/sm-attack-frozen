@@ -10,9 +10,11 @@ org $A0AA2C
 	JMP attack_check
 
 ; extra implementation, can be anywhere in bank $A0 free space
-; 34 ($22) bytes so far
 org $A0FFD0
 attack_check:
+	CPX #$0006       ; downward collision type? (*2, it's a word-offset)
+	BEQ landing      ; just land on it, kthx
+
 	PHX
 	LDX $18A6        ; reload enemy index
 
@@ -20,20 +22,11 @@ attack_check:
 	BEQ platform     ; not frozen: run default code
 
 	LDA $0A6E        ; Samus/enemy collision damage type
-	BEQ platform     ; not special: run default code
-	CMP #$0004       ; first unknown value (1 + screw attack)
-	BCS platform     ; >= unknown? better use the default
+	CMP #$0003       ; screw attacking?
+	BNE platform     ; nope, run default code
 
-	; Samus is speedrunning (1), shinesparking (2), or screw attacking (3)
-	; we should try killing the enemy, if it's not dangerous to do so.
-
-	; exclude super-special enemies
-	LDA $0F78,X      ; enemy type
-	CMP #$DD7F       ; metroid?
-	BEQ platform     ; use original freeze behavior
-
-	; frozen, and not excluded for any reason
 	STZ $0F9E,X      ; unfreeze enemy before processing collision
 platform:
 	PLX
+landing:
 	JMP ($AA2F,X)

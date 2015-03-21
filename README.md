@@ -8,10 +8,12 @@ This is not fully tested yet.  Bugs may lurk.
 
 Current status:
 
-1. Metroids are still platforms when frozen.  The alternative is untested.
-2. Possessors like Kihunters are untested.
+1. Metroids thaw and bounce off Samus when she screw attacks them.
+2. Possessors like Kihunters still leave frozen wings floating in the air.
 3. Glitching into frozen enemies *probably* mimics the vanilla game.
 4. Space Pirates (“special gfx/hitbox” enemies) **do** die.
+5. Samus’ motion is interrupted and her screw attack ends when she collides with an enemy.
+This turns Screw Attack into a high-powered pseudo screw attack vs. frozen enemies.
 
 # Description
 
