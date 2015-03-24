@@ -2,26 +2,6 @@
 
 Make Screw Attack effective on frozen enemies in Super Metroid.
 
-# Warning
-
-This is not fully tested yet.  Bugs may lurk.
-
-## Known issues
-
-1. Possessors like Kihunters still leave frozen bits floating in the air.
-2. Touching, but not colliding with, an enemy will unfreeze it.
-
-## Solved issues and style points
-
-1. Special-tilemap enemies like Space Pirates can be destroyed.
-2. Metroids can be safely attacked.
-They just unfreeze and bounce, at least for screw attack.
-I don’t think I can easily test speedboost+Metroid collisions.
-3. You can land on frozen enemies, if you’re falling down onto them.
-But, you can’t walljump off them.
-What good is only being able to kill them by jumping upward into them?
-4. Speed-running through frozen enemies kills them, too.
-
 # Description
 
 Unlike the original NES Metroid, in Super Metroid, enemies are normally invulnerable to Screw Attack while frozen.
@@ -31,6 +11,28 @@ It turns out that this happens because the normal collision-detect code doesn’
 This patch fixes that.
 
 Uses a dollop of free space near the top of bank $A0.
+It’s a pretty full bank, so I worked hard to keep it small.
+
+## Gameplay
+
+Jumping into (most) frozen enemies with Screw Attack kills them.
+If they’re immune to Screw Attack and not a platform-type enemy, they’ll be thawed instead.
+
+Samus can still land on any frozen enemy from above, but it does ruin her ability to walljump off of them.
+
+## Issues
+
+1. Possessors like Kihunters still leave frozen bits floating in the air.
+I haven’t tested any other possesors because I don’t have a list of them.
+2. Some enemies can be collided with, without actually causing damage.
+Like screw-attack resistant enemies, they just thaw instantly.
+3. Landing on a metroid will register a bounce in the AI.
+You can’t refreeze it until it thaws and bounces.
+But, you can still destroy it before it thaws.
+
+All that said, I think this may be as good as it gets.
+Doing much more to fix the glitches would be a truly epic adventure through all of the AI code.
+(I think.)
 
 # Applying it
 
