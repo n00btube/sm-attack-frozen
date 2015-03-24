@@ -12,8 +12,6 @@ org $A0AA24
 ; extra implementation, can be anywhere in bank $A0 free space
 org $A0FFD0
 attack_check:
-	BEQ platform     ; touched, not collided
-
 	LDA $0A6E        ; Samus/enemy collision damage type
 	BEQ platform     ; zero: nothing special
 	CMP #$0004       ; speedrun/shinespark/screw attack?
@@ -27,7 +25,7 @@ attack_check:
 	LDA $0F9E,X      ; get freeze timer
 	BEQ platform     ; not frozen (platform enemy), normal reaction
 
-	STZ $0F9E,X      ; unfreeze enemy - normal AI/collision applies
+	STZ $0F9E,X      ; unfreeze enemy, normal AI/collision applies later
 	JMP $AABF        ; platform miss
 platform:
 	LDA $0B02        ; collision direction, what we overwrote to hijack
