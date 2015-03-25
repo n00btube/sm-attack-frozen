@@ -34,6 +34,13 @@ All that said, I think this may be as good as it gets.
 Doing much more to fix the glitches would be a truly epic adventure through all of the AI code.
 (I think.)
 
+The game actually does collision detection twice.
+The first time, platform detection runs, and always uses the basic enemy hitbox.
+Later, if the enemy is neither a platform nor frozen, the enemy can specify a series of hitboxes with a custom routine (per hitbox) to run on collision.
+But by then, this patch has thawed the enemy based on their _basic_ hitbox, so if the AI code decides “not a hit,” the enemy has thawed without being hit.
+The patch uses that method because otherwise, enemies like the Space Pirates detect that they’re frozen and avoid registering any damage.
+Chasing down all the pointers they _could_ set for collision, to nullify each freeze detection, is a huge job.
+
 # Applying it
 
     xkas patchfile.asm unheadered.sfc
